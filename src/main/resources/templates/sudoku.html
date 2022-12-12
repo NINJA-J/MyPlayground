@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../sudoku.css">
+</head>
+<body>
+<div class="sudoku">
+    <div class="sudoku_main">
+        <table>
+            <tbody>
+                <tr th:each="r_cell_id:${#numbers.sequence(0,2)}">
+                    <td th:each="c_cell_id:${#numbers.sequence(0,2)}">
+                       <div class="sudoku_cell">
+                           <table>
+                               <tbody>
+                                    <tr th:each="r_num_id:${#numbers.sequence(0,2)}">
+                                        <td th:each="c_num_id:${#numbers.sequence(0,2)}">
+                                            <div th:with="r_id=${r_cell_id}*3+${r_num_id},c_id=${c_cell_id}*3+${c_num_id},valList=${values}">
+                                                <div th:if="${0 lt valList[r_id][c_id] && valList[r_id][c_id] lt 10}" class="given_num">
+                                                    <span th:text="${valList[r_id][c_id]}"></span>
+                                                </div>
+                                                <div th:if="${10 lt valList[r_id][c_id] && valList[r_id][c_id] lt 20}" class="filled_num">
+                                                    <span th:text="${valList[r_id][c_id]}-10"></span>
+                                                </div>
+                                                <div th:if="${valList[r_id][c_id]} == 0" class="select_num">
+                                                    <table>
+                                                        <tbody>
+                                                        <tr th:each="r_select_id:${#numbers.sequence(0,2)}">
+                                                            <td th:each="c_select_id:${#numbers.sequence(0,2)}" th:text="${r_select_id}*3+${c_select_id}+1">
+<!--                                                                <div th:with="to_select_num=${r_select_id}*3+${c_select_id}+1">-->
+<!--                                                                    <span th:text="${to_select_num}"></span>-->
+<!--                                                                </div>-->
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

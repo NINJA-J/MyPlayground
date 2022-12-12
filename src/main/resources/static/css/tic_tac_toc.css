@@ -1,0 +1,44 @@
+.board-grid {
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    border: aqua solid 3px;
+    border-radius: 15px;
+}
+
+.board-grid > table {
+    width: 100%;
+    height: 100%;
+    /*border: aqua solid 3px;*/
+}
+
+.board-grid > table > tbody > tr > td {
+    width: 33%;
+    height: 33%;
+    padding: 0;
+    /*margin: ;*/
+    /*position: center;*/
+    margin: auto;
+    horiz-align: center;
+}
+
+.board-grid > table > tbody > tr:nth-child(odd) > td:nth-child(even) {
+    background: #ababae;
+}
+
+.board-grid > table > tbody > tr:nth-child(even) > td:nth-child(odd) {
+    background: #ababae;
+}
+
+.square {
+    width: 90%;
+    height: 90%;
+    /*padding: 0;*/
+    font-size: 20px;
+    margin: auto;
+    horiz-align: center;
+    /*opacity: 0;*/
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    /*position: center;*/
+}
